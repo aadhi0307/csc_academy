@@ -1,0 +1,333 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <title>Index - CSC ACADEMY</title>
+  <meta name="description" content="">
+  <meta name="keywords" content="">
+
+  <!-- Favicons -->
+  <link href="{% static 'assets/img/logo csc.jpg' %}" rel="icon">
+  <link href="{% static 'assets/img/apple-touch-icon.png' %}" rel="apple-touch-icon">
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com" rel="preconnect">
+  <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+
+  <!-- Vendor CSS Files -->
+  <link href="{% static 'assets/vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
+  <link href="{% static 'assets/vendor/bootstrap-icons/bootstrap-icons.css' %}" rel="stylesheet">
+  <link href="{% static 'assets/vendor/aos/aos.css' %}" rel="stylesheet">
+  <link href="{% static 'assets/vendor/glightbox/css/glightbox.min.css' %}" rel="stylesheet">
+  <link href="{% static 'assets/vendor/swiper/swiper-bundle.min.css' %}" rel="stylesheet">
+
+  <!-- Main CSS File -->
+  <link href="{% static 'assets/css/main.css' %}" rel="stylesheet">
+
+  <!-- =======================================================
+  * Template Name: Mentor
+  * Template URL: https://bootstrapmade.com/mentor-free-education-bootstrap-theme/
+  * Updated: Aug 07 2024 with Bootstrap v5.3.3
+  * Author: BootstrapMade.com
+  * License: https://bootstrapmade.com/license/
+  ======================================================== -->
+<style>
+/* Hover and text colors */
+a:hover,
+.navmenu a:hover,
+.navmenu .active,
+.navmenu li:hover > a,
+.btn-getstarted:hover,
+.btn-get-started:hover,
+.read-more:hover span,
+.more-btn:hover span,
+.footer a:hover {
+  color: #5f04a0 !important;
+}
+
+/* Buttons */
+.btn-getstarted,
+.btn-get-started,
+.read-more,
+.newsletter-form input[type="submit"],
+#scroll-top {
+  background-color: #5f04a0 !important;
+  border-color: #5f04a0 !important;
+  color: #fff !important;
+  transition: 0.3s;
+}
+
+.btn-getstarted:hover,
+.btn-get-started:hover,
+.read-more:hover,
+.newsletter-form input[type="submit"]:hover,
+#scroll-top:hover {
+  background-color: #48037e !important;
+  border-color: #48037e !important;
+  color: #fff !important;
+}
+
+/* Category label (e.g. Web Development) */
+.category {
+  background-color: #5f04a0 !important;
+  color: #fff !important;
+  padding: 5px 10px;
+  border-radius: 4px;
+}
+
+/* Optional: icon hover color */
+.bi:hover {
+  color: #5f04a0 !important;
+}
+
+</style>
+<style>
+ .footer-links {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.footer-column {
+  width: 48%; /* Adjust spacing between columns */
+}
+
+.footer-column h4 {
+  color: #000;
+  font-size: 18px;
+  margin-bottom: 15px;
+}
+
+.footer-column ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.footer-column ul li {
+  margin-bottom: 8px;
+}
+
+.footer-column ul a {
+  color: #fff;
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+.footer-column ul a:hover {
+  color: #5f04a0;
+}
+
+/* Responsive layout */
+@media (max-width: 768px) {
+  .footer-column {
+    width: 100%;
+    margin-bottom: 20px;
+  }
+}
+
+</style>
+
+</head>
+
+<body class="index-page">
+  <header id="header" class="header d-flex align-items-center sticky-top">
+    <div class="container-fluid container-xl position-relative d-flex align-items-center">
+     <a href="{% url 'index' %}" class="logo d-flex align-items-center me-auto">
+      <img src="{% static 'assets/img/Logo_of_Common_Service_Centres.svg (1).png' %}" alt="CSC Academy Logo" 
+          style="height:20px; margin-right:10px;">
+      <h1 class="sitename" style="color:#5f04a0; margin:0;">CSC ACADEMY</h1>
+    </a>
+
+      <nav id="navmenu" class="navmenu">
+        <ul>
+          <li><a href="{% url "index" %}" class="active">Home<br></a></li>
+          <li><a href="{% url "about" %}">About</a></li>
+          <li><a href="{% url "course" %}">Courses</a></li>
+          <li><a href="{% url "affiliations" %}">Affiliations & Certifications</a></li>
+          <li><a href="{% url "contact" %}">Contact Us</a></li>
+        </ul>
+        <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
+      </nav>
+
+      <a class="btn-getstarted" href="{% url "course" %}">Get Started</a>
+
+    </div>
+  </header>
+
+  <main class="main">
+
+  {% block content %}
+
+  <!-- Hero Section -->
+  <section id="hero" class="hero section dark-background">
+    <img src="{% static 'assets/img/index-img.jpg' %}" alt="" data-aos="fade-in">
+
+    <div class="container">
+      <h2 data-aos="fade-up" data-aos-delay="100">Learning Today,<br>Leading Tomorrow</h2>
+      <p data-aos="fade-up" data-aos-delay="200">We are making technology simple for everyone.</p>
+      <div class="d-flex mt-4" data-aos="fade-up" data-aos-delay="300">
+        <a href="{% url "course" %}" class="btn-get-started">Get Started</a>
+      </div>
+    </div>
+  </section><!-- /Hero Section -->
+
+  <!-- About Section -->
+  <section id="about" class="about section">
+    <div class="container">
+      <div class="row gy-4">
+        <div class="col-lg-6 order-1 order-lg-2" data-aos="fade-up" data-aos-delay="100">
+          <img src="{% static 'assets/img/about.jpg' %}" class="img-fluid" alt="">
+        </div>
+
+        <div class="col-lg-6 order-2 order-lg-1 content" data-aos="fade-up" data-aos-delay="200">
+          <h3>Why Choose CSC ACADEMY</h3>
+          <p class="fst-italic">
+            Welcome to CSC ACADEMY — where learning meets innovation! We are making technology simple, fun, and career-focused for everyone.
+          </p>
+          <ul>
+            <li><i class="bi bi-check-circle"></i> <span>Expert and certified trainers with real-world experience.</span></li>
+            <li><i class="bi bi-check-circle"></i> <span>Wide range of computer and technology courses.</span></li>
+            <li><i class="bi bi-check-circle"></i> <span>Modern labs and high-quality infrastructure.</span></li>
+            <li><i class="bi bi-check-circle"></i> <span>Recognized certificates after course completion.</span></li>
+            <li><i class="bi bi-check-circle"></i> <span>Career-focused training and placement support.</span></li>
+          </ul>
+          <a href="{% url "about" %}" class="read-more"><span>Read More</span><i class="bi bi-arrow-right"></i></a>
+        </div>
+      </div>
+    </div>
+  </section><!-- /About Section -->
+
+  <!-- Courses Section -->
+  <section id="courses" class="courses section">
+    <div class="container section-title" data-aos="fade-up">
+      <h2>Courses</h2>
+      <p>Our Courses</p>
+    </div>
+
+    <div class="container">
+      <div class="row">
+        {% for course in courses %}
+        <div class="col-lg-4 col-md-6 d-flex align-items-stretch" data-aos="zoom-in" data-aos-delay="100">
+          <div class="course-item">
+            {% if course.C_image %}
+            <img src="{{ course.C_image.url }}" class="img-fluid" alt="{{ course.C_name }}">
+            {% else %}
+            <img src="{% static 'assets/img/course-1.jpg' %}" class="img-fluid" alt="Default image">
+            {% endif %}
+            <div class="course-content">
+              <div class="d-flex justify-content-between align-items-center mb-3">
+                <p class="category">{{ course.C_name }}</p>
+                {% comment %} <p class="price">₹{{ course.C_price }}</p> {% endcomment %}
+              </div>
+              <h3><a href="#">{{ course.C_name }}</a></h3>
+              <p class="description">{{ course.C_description }}</p>
+              <a href="{% url 'course_detail' course.id %}" class="read-more">
+                <span>Read More</span><i class="bi bi-arrow-right"></i>
+                </a>            </div>
+          </div>
+        </div>
+        {% endfor %}
+      </div>
+    </div>
+  </section><!-- /Courses Section -->
+
+  {% endblock %}
+
+</main>
+
+
+  <footer id="footer" class="footer position-relative light-background">
+
+    <div class="container footer-top">
+      <div class="row gy-4">
+        <div class="col-lg-4 col-md-6 footer-about">
+          <a href="index.html" class="logo d-flex align-items-center">
+            <span class="sitename">CSC ACADEMY</span>
+          </a>
+          <div class="footer-contact pt-3">
+            <p>Bank Road, Opp. Hotel Airlines</p>
+            <p>Kasaragod,Kerala</p>
+            <p class="mt-3"><strong>Phone:</strong> <span>+91 94478 89779, +91 75589 8556</span></p>
+            <p><strong>Email:</strong> <span>cscacademyk@gmail.com</span></p>
+          </div>
+          <div class="social-links d-flex mt-4">
+            <a href="https://www.facebook.com/share/1BUp3QZSf5/"><i class="bi bi-facebook"></i></a>
+            <a href="https://www.instagram.com/cscacademy_ksd?igsh=MWg1dzhyNHpiOW9iZQ=="><i class="bi bi-instagram"></i></a>
+            
+          </div>
+        </div>
+
+        <div class="col-lg-8 footer-links d-flex justify-content-between flex-wrap">
+  <!-- Useful Links -->
+  <div class="footer-column">
+    <h4>Useful Links</h4>
+    <ul>
+      <li><a href="{% url 'index' %}">Home</a></li>
+      <li><a href="{% url 'about' %}">About us</a></li>
+      <li><a href="{% url 'course' %}">Courses</a></li>
+      <li><a href="{% url 'contact' %}">Contact us</a></li>
+      <li><a href="{% url 'affiliations' %}">Affiliations & Certifications</a></li>
+    </ul>
+  </div>
+
+  <!-- Our Services -->
+  <div class="footer-column">
+    <h4>Our Services</h4>
+    <ul class="footer-services">
+      <li><span>Graphic Design</span></li>
+      <li><span>Python Django Fullstack Development</span></li>
+      <li><span>Diploma In Financial Accounting</span></li>
+      <li><span>K-TET Crash Course</span></li>
+      <li><span>Digital Marketing</span></li>
+      <li><span>Ayurveda Panchakarma Therapy Course</span></li>
+    </ul>
+  </div>
+</div>
+
+
+        {% comment %} <div class="col-lg-4 col-md-12 footer-newsletter">
+          <h4>Our Newsletter</h4>
+          <p>Subscribe to our newsletter and receive the latest news about our products and services!</p>
+          <form action="forms/newsletter.php" method="post" class="php-email-form">
+            <div class="newsletter-form"><input type="email" name="email"><input type="submit" value="Subscribe"></div>
+            <div class="loading">Loading</div>
+            <div class="error-message"></div>
+            <div class="sent-message">Your subscription request has been sent. Thank you!</div>
+          </form>
+        </div> {% endcomment %}
+
+      </div>
+    </div>
+
+    <div class="container copyright text-center mt-4">
+      <p>© <span>Copyright</span> <strong class="px-1 sitename">CSC ACADEMY</strong> <span>All Rights Reserved</span></p>
+      
+    </div>
+
+  </footer>
+
+  <!-- Scroll Top -->
+  <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+
+  <!-- Preloader -->
+  {% comment %} <div id="preloader"></div> {% endcomment %}
+
+  <!-- Vendor JS Files -->
+  <script src="{% static 'assets/vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+  <script src="{% static 'assets/vendor/php-email-form/validate.js' %}"></script>
+  <script src="{% static 'assets/vendor/aos/aos.js' %}"></script>
+  <script src="{% static 'assets/vendor/glightbox/js/glightbox.min.js' %}"></script>
+  <script src="{% static 'assets/vendor/purecounter/purecounter_vanilla.js' %}"></script>
+  <script src="{% static 'assets/vendor/swiper/swiper-bundle.min.js' %}"></script>
+
+  <!-- Main JS File -->
+  <script src="{% static 'assets/js/main.js' %}"></script>
+
+</body>
+
+</html>

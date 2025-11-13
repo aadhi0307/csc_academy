@@ -1,0 +1,160 @@
+{% extends "index.html" %}
+{% block content %}
+
+<style>
+/* Page title */
+.page-title {
+  background-color: #48037e;
+  height: 100px;
+}
+.page-title h1 {
+  color: #fff;
+  font-weight: 700;
+  margin-top: -50px;
+}
+
+/* Contact info + form */
+.contact-section {
+  padding: 60px 0;
+}
+
+.contact-form {
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+  padding: 30px;
+}
+
+.contact-form h2 {
+  text-align: center;
+  color: #48037e;
+  font-weight: 700;
+  margin-bottom: 25px;
+}
+
+.contact-form .form-control {
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 12px;
+  width: 100%;
+  margin-bottom: 20px;
+  font-size: 16px;
+  transition: all 0.3s ease;
+}
+
+.contact-form .form-control:focus {
+  border-color: #48037e;
+  box-shadow: 0 0 5px rgba(72, 3, 126, 0.4);
+  outline: none;
+}
+
+.contact-form button {
+  background-color: #48037e;
+  color: #fff;
+  border: none;
+  padding: 12px 25px;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: 600;
+  transition: background-color 0.3s ease;
+  width: 100%;
+}
+
+.contact-form button:hover {
+  background-color: #5f04a0;
+  cursor: pointer;
+}
+
+/* Info item styles */
+.info-item {
+  background: #f8f9fa;
+  padding: 20px;
+  border-radius: 10px;
+  margin-bottom: 20px;
+  box-shadow: 0 3px 8px rgba(0,0,0,0.05);
+}
+
+.info-item i {
+  font-size: 28px;
+  color: #48037e;
+  margin-right: 15px;
+}
+</style>
+
+<main class="main">
+
+  <!-- Page Title -->
+  <div class="page-title" data-aos="fade">
+    <div class="heading">
+      <div class="container text-center">
+        <h1>Contact Us</h1>
+      </div>
+    </div>
+  </div>
+  <!-- End Page Title -->
+
+  <!-- Contact Section -->
+  <section class="contact-section">
+    <div class="container" data-aos="fade-up" data-aos-delay="100">
+      <div class="row gy-4">
+
+        <!-- Contact Info -->
+        <div class="col-lg-4">
+          <div class="info-item d-flex" data-aos="fade-up" data-aos-delay="300">
+            <i class="bi bi-geo-alt flex-shrink-0"></i>
+            <div>
+              <h3>Address</h3>
+              <p>Bank Road, Opp. Hotel Airlines</p>
+              <p>Kasaragod, Kerala</p>
+            </div>
+          </div>
+
+          <div class="info-item d-flex" data-aos="fade-up" data-aos-delay="400">
+            <i class="bi bi-telephone flex-shrink-0"></i>
+            <div>
+              <h3>Call Us</h3>
+              <p>+91 94478 89779, +91 75589 8556</p>
+            </div>
+          </div>
+
+          <div class="info-item d-flex" data-aos="fade-up" data-aos-delay="500">
+            <i class="bi bi-envelope flex-shrink-0"></i>
+            <div>
+              <h3>Email Us</h3>
+              <p>cscacademyk@gmail.com</p>
+            </div>
+          </div>
+        </div>
+        <!-- End Info -->
+
+        <!-- Contact Form -->
+        <div class="col-lg-8">
+          <div class="contact-form" data-aos="fade-up" data-aos-delay="200">
+            <h2>Send a Message</h2>
+            <form action="{% url 'contact_data' %}" method="post">
+              {% csrf_token %}
+              <input type="text" name="name" class="form-control" placeholder="Your Name" required>
+              <input type="email" name="email" class="form-control" placeholder="Your Email" required>
+              <input type="text" name="subject" class="form-control" placeholder="Subject" required>
+              <textarea name="message" class="form-control" rows="5" placeholder="Your Message" required></textarea>
+              <button type="submit">Send Message</button>
+            </form>
+          </div>
+        </div>
+        <!-- End Form -->
+
+      </div>
+    </div>
+
+    <!-- Google Map -->
+    <div class="mb-5 mt-5" data-aos="fade-up" data-aos-delay="200">
+      <iframe style="border:0; width: 100%; height: 300px;"
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3918.802076414254!2d75.0049!3d12.5001!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3ba483fda50e4f37%3A0xbbb8899b2ab9e92f!2sCSC%20Academy%20Kasaragod!5e0!3m2!1sen!2sin!4v1730903500000!5m2!1sen!2sin"
+        frameborder="0" allowfullscreen="" loading="lazy"
+        referrerpolicy="no-referrer-when-downgrade">
+      </iframe>
+    </div>
+  </section>
+</main>
+
+{% endblock %}

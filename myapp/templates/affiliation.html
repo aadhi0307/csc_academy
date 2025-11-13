@@ -1,0 +1,94 @@
+{% extends "index.html" %}
+{% block content %}
+
+<style>
+/* Page title custom style */
+.page-title {
+  background-color: #48037e;
+  height: 100px;
+}
+
+.page-title h1 {
+  color: #fff;
+  font-weight: 700;
+  margin-top: -50px;
+}
+
+.page-title .breadcrumbs ol li a,
+.page-title .breadcrumbs ol li.current {
+  color: #fff !important;
+}
+
+/* Affiliations content styling */
+.affiliation-item {
+  text-align: left;
+  margin-bottom: 40px;
+}
+
+.affiliation-item img {
+  max-width: 150px;
+  margin-bottom: 15px;
+  display: block;
+}
+
+.affiliation-item h3 {
+  font-weight: 600;
+  color: #48037e;
+  margin-bottom: 10px;
+}
+
+.affiliation-item p {
+  color: #333;
+  line-height: 1.7;
+}
+
+hr {
+  border: 0;
+  border-top: 1px solid #ccc;
+  margin: 30px 0;
+}
+</style>
+
+<main class="main">
+
+  <!-- Page Title -->
+  <div class="page-title" data-aos="fade">
+    <div class="heading">
+      <div class="container">
+        <div class="row d-flex justify-content-center text-center">
+          <div class="col-lg-8">
+            <h1>Affiliations & Certifications</h1>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- End Page Title -->
+
+  <!-- Affiliations Section -->
+  <section id="affiliations" class="section">
+    <div class="container" data-aos="fade-up" data-aos-delay="100">
+
+      {% for a in affiliations %}
+      <div class="affiliation-item" data-aos="fade-up" data-aos-delay="{{ forloop.counter0|add:2 }}00">
+        {% if a.logo %}
+          <img src="{{ a.logo.url }}" alt="{{ a.title }}">
+        {% endif %}
+        <h3>{{ a.title }}</h3>
+        <p>{{ a.description }}</p>
+      </div>
+
+      {% if not forloop.last %}
+      <hr>
+      {% endif %}
+      {% empty %}
+      <p class="text-center">No affiliations or certifications added yet.</p>
+      {% endfor %}
+
+    </div>
+  </section>
+  <!-- /Affiliations Section -->
+
+</main>
+
+{% endblock %}

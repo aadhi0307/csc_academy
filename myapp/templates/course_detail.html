@@ -1,0 +1,117 @@
+{% extends "index.html" %}
+{% load static %}
+{% block content %}
+
+<style>
+/* Page title section */
+.page-title {
+  background-color: #48037e;
+  height: 120px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.page-title h1 {
+  color: #fff;
+  font-weight: 700;
+  margin: 0;
+}
+
+/* Course details section */
+.course-details {
+  padding: 60px 0;
+}
+.course-image img {
+  width: 100%;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+.course-info {
+  margin-top: 20px;
+}
+.course-info h2 {
+  color: #48037e;
+  font-weight: 700;
+}
+.course-info .price {
+  color: #5f04a0;
+  font-size: 20px;
+  font-weight: 700;
+  margin: 15px 0;
+}
+.course-info p {
+  font-size: 16px;
+  color: #333;
+}
+.course-syllabus {
+  margin-top: 40px;
+}
+.course-syllabus h3 {
+  color: #48037e;
+  font-weight: 700;
+  margin-bottom: 15px;
+}
+.course-syllabus p {
+  white-space: pre-line;
+  color: #444;
+}
+.back-btn {
+  display: inline-block;
+  margin-top: 20px;
+  background-color: #5f04a0;
+  color: #fff;
+  padding: 10px 25px;
+  border-radius: 8px;
+  text-decoration: none;
+  transition: 0.3s;
+}
+.back-btn:hover {
+  background-color: #48037e;
+  color: #fff;
+}
+</style>
+
+<main class="main">
+
+  <!-- Page Title -->
+  <div class="page-title" data-aos="fade">
+    <div class="container text-center">
+      <h1>{{ course.C_name }}</h1>
+    </div>
+  </div>
+
+  <!-- Course Details Section -->
+  <section class="course-details">
+    <div class="container" data-aos="fade-up">
+      <div class="row gy-4">
+        <!-- Left column (image) -->
+        <div class="col-lg-6 course-image">
+          {% if course.C_image %}
+            <img src="{{ course.C_image.url }}" alt="{{ course.C_name }}">
+          {% else %}
+            <img src="{% static 'assets/img/course-1.jpg' %}" alt="Default image">
+          {% endif %}
+        </div>
+
+        <!-- Right column (info) -->
+        <div class="col-lg-6 course-info">
+          <h2>{{ course.C_name }}</h2>
+          {% comment %} <p class="price">₹{{ course.C_price }}</p> {% endcomment %}
+          <p>{{ course.C_description }}</p>
+
+          <a href="{% url 'course' %}" class="back-btn">← Back to Courses</a>
+        </div>
+      </div>
+
+      <!-- Syllabus Section -->
+      <div class="course-syllabus mt-5">
+        <h3>Course Syllabus</h3>
+        <p>{{ course.C_syllabus }}</p>
+      </div>
+
+    </div>
+  </section>
+
+</main>
+
+{% endblock %}

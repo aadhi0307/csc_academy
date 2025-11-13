@@ -1,0 +1,64 @@
+{% extends "index.html" %}
+{% load static %}
+{% block content %}
+<style>
+    /* Page title */
+.page-title {
+  background-color: #48037e;
+  height: 100px;
+}
+.page-title h1 {
+  color: #fff;
+  font-weight: 700;
+  margin-top: -50px;
+}
+</style>
+
+<main class="main">
+
+  <!-- Page Title -->
+  <div class="page-title" data-aos="fade">
+    <div class="heading">
+      <div class="container text-center">
+        <h1>Courses</h1>
+      </div>
+    </div>
+  </div>
+
+  <!-- Courses Section -->
+  <section id="courses" class="courses section">
+    <div class="container section-title" data-aos="fade-up">
+      <h2>Courses</h2>
+      <p>Our Courses</p>
+    </div>
+
+    <div class="container">
+      <div class="row">
+        {% for course in courses %}
+        <div class="col-lg-4 col-md-6 d-flex align-items-stretch" data-aos="zoom-in" data-aos-delay="100">
+          <div class="course-item">
+            {% if course.C_image %}
+              <img src="{{ course.C_image.url }}" class="img-fluid" alt="{{ course.C_name }}">
+            {% else %}
+              <img src="{% static 'assets/img/course-1.jpg' %}" class="img-fluid" alt="Default image">
+            {% endif %}
+            <div class="course-content">
+              <div class="d-flex justify-content-between align-items-center mb-3">
+                <p class="category">{{ course.C_name }}</p>
+                {% comment %} <p class="price">₹{{ course.C_price }}</p> {% endcomment %}
+              </div>
+              <h3><a href="#">{{ course.C_name }}</a></h3>
+              <p class="description">{{ course.C_description }}</p>
+                <a href="{% url 'course_detail' course.id %}" class="read-more">
+                <span>Read More</span><i class="bi bi-arrow-right"></i>
+                </a>
+            </div>
+          </div>
+        </div>
+        {% endfor %}
+      </div>
+    </div>
+  </section>
+
+</main>
+{% endblock %}
